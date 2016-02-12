@@ -1,35 +1,57 @@
-﻿
-(function () {
-//Controller
+﻿(function () {
+
+    //Controller
     var HomePageController = function ($scope, $http) {
+
         var objData = {};
         var objFData = {};
-        $scope.gridData = [{ ID: "ID", Name: "Not selected", Hobbies: "None" }];
 
-        var tpt = {
-            read: function (e) {
-                $http(req)
-                  .then(function success(response) {
-                      e.success(response.data.Result);
-                      $scope.gridData = response.data.Result;
-                  },
-                      function error(response) {
-                          alert('something went wrong')
-                          console.log(response.data.Result);
-                      });
+        var data = [{ ID: "ID", Name: "Not selected", Hobbies: "None" }];
+
+        $scope.gridData = new kendo.data.ObservableArray([]);;
+
+        $scope.gridColumns = [
+                { field: "ID", title: "ID", filterable: false, type: "inetger" },
+                {
+                    field: "Name", title: "Name", type: "string",
+                    filterable: {
+                        cell: {
+                            operator: "contains",
+                            showOperators: false
+                        }
+                    }
+                },
+                { field: "Hobbies", title: "Hobbies", filterable: false, type: "string" }
+        ];
+
+        $scope.update = function () {
+            try {
+                var req = {
+                    method: 'GET',
+                    url: 'http://localhost/WebApi.Core/api/employee/getallemployee/1',
+                    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+                    data: data
+                };
+                $scope.app = { message: "Searching..." };
+                $http(req).then(onSuccess, onError);
+            }
+            catch (ex) {
+                console.log(ex);
             }
         };
 
-        var dtSource = {
-            scheme: { model: { fields: { Name: { type: "string" } } } },
-            transport: tpt
+        onSuccess = function (resonse) {
+            try {
+                $scope.gridData = resonse.data.Result;
+                $scope.app = { message: "Data loaded..." };
+            }
+            catch (ex) {
+                console.log(ex);
+            }
         };
 
-        var req = {
-            method: 'GET',
-            url: 'http://localhost/WebApi.Core/api/employee/getallemployee/1',
-            headers: { 'Content-Type': 'application/json; charset=utf-8' },
-            data: $scope.filterData
+        onError = function (error) {
+            alert(error.Result);
         };
 
         $scope.labels = {
@@ -40,45 +62,31 @@
 
         $scope.app = { message: "Sample application" };
 
+      
+        $scope.onDataBinding = function (e) {
+            kendoConsole.log(e.dataItem);
+        };
+
         $scope.gridOptions = {
-            filterable: true,
-            pageable: true,
-            columns: [
-                { field: "ID", title: "ID", filterable: false },
-                {
-                    field: "Name", title: "Name",
-                    filerable: {
-                        cell:
-                        {
-                            multi: true,
-                            dataSource: [{ Name: "Iliyas" }, { Name: "Robert" }, { Name: "Sandy" }, { Name: "John" }, { Name: "Lily" }],
-                            itemTemplate: function (e) {
-                                alert(e);
-                                return "<span><label><span>#= data.Name|| data.all #</span><input type='checkbox' name='" + e.field + "' value='#= data.Name#'/></label></span>";
-                            }
-                        }
+            
+            dataBinding: $scope.onDataBinding,
+            filterable: { mode: "menu" },
+            columns: $scope.gridColumns,
+            scheme: {
+                model: {
+                    fields: {
+                        ID: { type: "integer" },
+                        Name: { type: "string" },
+                        Hobbies: { type: "string" }
                     }
-                },
-                { field: "Hobbies", title: "Hobbies", filterable: false }
-            ],
-            dataSource: {
-                scheme: {
-                    model: {
-                        fields: {
-                            ID: { type: "integer" },
-                            Name: { type: "string" },
-                            Hobbies: { type: "string" }
-                        }
-                    }
-                },
-                serverPaging: false,
-                serverFiltering: false,
-                serverSorting: false,
-                pageSize: 5,
-                transport: tpt
-            }
+                }
+            },
+
         };
     };
+
+
+    //-------------------------------------------------------------------//
     var webui = angular.module('webui', ['ngRoute', 'kendo.directives']);
     var configFunction = function ($routeProvider) {
         $routeProvider.
@@ -119,37 +127,22 @@ ddDataSource = function () {
     alert('s');
 
 
+     var tpt = {
+            read: function (e) {
+                $http(req)
+                  .then(function success(response) {
+                      e.success(response.data.Result);
+                      $scope.gridData = response.data.Result;
+                  },
+                      function error(response) {
+                          alert('something went wrong')
+                          console.log(response.data.Result);
+                      });
+            }
+        };
 
 
-     //$scope.update = function () {
-    //    try {
-    //        var req = {
-    //            method: 'GET',
-    //            url: 'http://localhost/WebApi.Core/api/employee/getallemployee/1',
-    //            headers: { 'Content-Type': 'application/json; charset=utf-8' },
-    //            data: data
-    //        };
-    //        $scope.app = { message: "Searching..." };
-    //        $http(req).then(onSuccess, onError);
-    //    }
-    //    catch (ex) {
-    //        console.log(ex);
-    //    }
-    //};
-
-
-    //onSuccess = function (resonse) {
-    //    try {
-    //        $scope.gridData = resonse.data.Result;
-    //        $scope.app = { message: "Data loaded..." };
-    //    }
-    //    catch (ex) {
-    //        console.log(ex);
-    //    }
-    //};
-    //onError = function (error) {
-    //    alert(error.Result);
-    //};
+     
 
     // //$scope.nameEditor = function (container, options) {
     // //    jQuery('<input id="txtName"  required data-text-field="Name" data-value-field="Name" data-bind="value:' + options.field + '"/>')
@@ -171,5 +164,23 @@ ddDataSource = function () {
     // filterTemplate = function (e) {
     //     return "<span><label><span>#= data.ID|| data.all #</span><input type='checkbox' name='ID:" + e.field + "' value='#= data.ID#'/></label></span>";
     // }
+
+
+    {
+                scheme: {
+                    model: {
+                        fields: {
+                            ID: { type: "integer" },
+                            Name: { type: "string" },
+                            Hobbies: { type: "string" }
+                        }
+                    }
+                },
+                serverPaging: false,
+                serverFiltering: false,
+                serverSorting: false,
+                pageSize: 5,
+                transport: tpt
+            },
 
 };*/

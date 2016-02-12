@@ -7,19 +7,18 @@
     </center>
 
     <div style="width:500px;">
-        <div kendo-grid
-             k-on-change="selected = data"
-             k-options="gridOptions"></div>
-
-        <p ng-show="selected">
-            <label>Artist: <input ng-model="selected.artist" /></label>
-            <br />
-            <label>Track: <input ng-model="selected.track" /></label>
-        </p>
+        <div id="grdKendoGrid"
+             kendo-grid
+             k-pagesize="5"
+             k-options="{{gridOptions}}"
+             k-data-source="gridData"
+             k-pageable="true">
+        </div>
 
         <button kendo-button ng-click="update()">
             Load more...
         </button>
+
     </div>
     <h2>Route Demos</h2>
     <ol>
