@@ -1,0 +1,39 @@
+﻿
+<div ng-app="webui" ng-controller="HomePageController">
+    <center>
+        <h1>
+            {{app.message}}
+        </h1>
+    </center>
+
+    <div style="width:500px;">
+        <div kendo-grid
+             k-on-change="selected = data"
+             k-options="gridOptions"></div>
+
+        <p ng-show="selected">
+            <label>Artist: <input ng-model="selected.artist" /></label>
+            <br />
+            <label>Track: <input ng-model="selected.track" /></label>
+        </p>
+
+        <button kendo-button ng-click="update()">
+            Load more...
+        </button>
+    </div>
+    <h2>Route Demos</h2>
+    <ol>
+        <li><a href="/#/routeOne">Take One</a></li>
+        <li><a href="/#/routeTwo">Route Two</a></li>
+        <li><a href="/#/routeThree">Take Three</a></li>
+    </ol>
+
+    <div ng-view></div>
+</div>
+
+
+
+
+
+
+
