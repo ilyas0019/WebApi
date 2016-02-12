@@ -3,6 +3,9 @@
   <project key="178078936">
     <configuration>DEBUG;TRACE</configuration>
   </project>
+  <project key="1383243367">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
   <sourcecode name="AuthConfig.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2016/02/02 16:43:39.392</styleCop>
@@ -2364,7 +2367,7 @@
       </violation>
     </violations>
   </sourcecode>
-  <project key="1383243367">
+  <project key="-1431906056">
     <configuration>DEBUG;TRACE</configuration>
   </project>
 </stylecopresultscache>
