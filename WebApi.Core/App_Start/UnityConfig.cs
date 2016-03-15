@@ -12,6 +12,7 @@
     using System.Web.Http;
     using System.Web.Http.Dispatcher;
     using System.Web.Http.Controllers;
+    
 
     public class UnityConfig
     {
@@ -19,6 +20,7 @@
         {
             IUnityContainer container = new UnityContainer();
             container.RegisterType<IEmployeeRepository, EmployeeRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IMongoDBRepository, MongoDBRepository>(new HierarchicalLifetimeManager());
             DependencyResolver.SetResolver(new UnityDepandencyResolver(container));
             return container;
         }

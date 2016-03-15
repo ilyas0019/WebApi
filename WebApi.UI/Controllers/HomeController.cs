@@ -14,6 +14,12 @@ namespace WebApi.UI.Controllers
 
             return View();
         }
+
+        public JsonResult GetJSONData()
+        {
+
+            return new JsonResult();
+        }
     
     }
 }

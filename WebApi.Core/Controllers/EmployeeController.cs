@@ -17,10 +17,12 @@ namespace WebApi.Core.Controllers
     public class EmployeeController : BaseApiController
     {
         private readonly IEmployeeRepository employeeRepository;
-                
-        public EmployeeController(IEmployeeRepository prmEmployeeRepository) : base(prmEmployeeRepository)
+        private readonly IMongoDBRepository mongoRepository;
+        
+        public EmployeeController(IEmployeeRepository prmEmployeeRepository, IMongoDBRepository prmMongoDB) : base(prmEmployeeRepository, prmMongoDB)
         {
             this.employeeRepository = prmEmployeeRepository;
+            this.mongoRepository = prmMongoDB;
         }
 
         [HttpGet]
@@ -34,9 +36,7 @@ namespace WebApi.Core.Controllers
             catch (Exception ex)
             {
                 return ErrorMessage(ex);
-
             }
-
         }
 
         [HttpPost]
@@ -83,7 +83,43 @@ namespace WebApi.Core.Controllers
                 emp.Add(employee);
 
                 return Request.CreateResponse<APIResponse>(HttpStatusCode.OK, new APIResponse { Result = emp });
+            }
+            catch (Exception ex)
+            {
+                return ErrorMessage(ex);
+            }
+        }
 
+
+
+        [HttpPost]
+        [ActionName("SavePageState")]
+        public HttpResponseMessage SavePageState(MongoModel mongoModel)
+        {
+            var emp = new List<EmployeeModel>();
+            try
+            {
+                mongoRepository.SavePageState(mongoModel);
+
+                return Request.CreateResponse<APIResponse>(HttpStatusCode.OK, new APIResponse { Result = null });
+            }
+            catch (Exception ex)
+            {
+                return ErrorMessage(ex);
+            }
+        }
+
+
+        [HttpGet]
+        [ActionName("GetPageState")]
+        public HttpResponseMessage GetPageState(int id)
+        {
+            var emp = new List<EmployeeModel>();
+            try
+            {
+              var result=   mongoRepository.GetPageState(new MongoModel());
+
+              return Request.CreateResponse<MongoModel>(HttpStatusCode.OK, result);
             }
             catch (Exception ex)
             {

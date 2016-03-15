@@ -2,7 +2,7 @@
 <div ng-app="webui" ng-controller="HomePageController">
     <center>
         <h1>
-            {{app.message}}
+            {{vm.app.message}}
         </h1>
     </center>
 
@@ -10,8 +10,8 @@
         <div id="grdKendoGrid"
              kendo-grid
              k-pagesize="5"
-             k-options="{{gridOptions}}"
-             k-data-source="gridData"
+             k-options="vm.gridOptions"
+             k-data-source="vm.gridData"
              k-pageable="true">
         </div>
 
@@ -19,13 +19,23 @@
             Load more...
         </button>
 
+        <button kendo-button ng-click="savepagestate()">
+            Save page state
+        </button>
+
+        <button kendo-button ng-click="getpagestate()">
+            Get page state
+        </button>
+
     </div>
-    <h2>Route Demos</h2>
+
+
+    @*<h2>Route Demos</h2>
     <ol>
         <li><a href="/#/routeOne">Take One</a></li>
         <li><a href="/#/routeTwo">Route Two</a></li>
         <li><a href="/#/routeThree">Take Three</a></li>
-    </ol>
+    </ol>*@
 
     <div ng-view></div>
 </div>

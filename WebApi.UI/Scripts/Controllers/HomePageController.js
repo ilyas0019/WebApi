@@ -3,14 +3,90 @@
     //Controller
     var HomePageController = function ($scope, $http) {
 
+
         var objData = {};
         var objFData = {};
 
         var data = [{ ID: "ID", Name: "Not selected", Hobbies: "None" }];
 
-        $scope.gridData = new kendo.data.ObservableArray([]);;
+        onSuccess = function (resonse) {
+            try {
+                $scope.vm.gridData = resonse.data.Result;
+                $scope.vm.app = { message: "Data loaded..." };
+            }
+            catch (ex) {
+                console.log(ex);
+            }
+        };
 
-        $scope.gridColumns = [
+        onError = function (error) {
+            alert(error.Result);
+        };
+
+        $scope.update = function () {
+            try {
+                var req = {
+                    method: 'GET',
+                    url: 'http://localhost/WebApi.Core/api/employee/getallemployee/1',
+                    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+                    data: data
+                };
+                $scope.vm.app = { message: "Searching..." };
+                $http(req).then(onSuccess, onError);
+            }
+            catch (ex) {
+                console.log(ex);
+            }
+        };
+
+        $scope.savepagestate = function () {
+            try {
+                var req = {
+                    method: 'POST',
+                    url: 'http://localhost/WebApi.Core/api/employee/savepagestate/1',
+                    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+                    data: {
+                        User: 1,
+                        Page: "New",
+                        PageVM: "",
+                        SessionID: "sessionid"
+                    }
+                };
+                $scope.vm.app = { message: "Page state saved" };
+                $http(req).then(onSuccess, onError);
+            }
+            catch (ex) {
+                console.log(ex);
+            }
+        };
+
+        $scope.getpagestate = function () {
+            try {
+                var req = {
+                    method: 'GET',
+                    url: 'http://localhost/WebApi.Core/api/employee/GetPageState/1',
+                    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+                    data: JSON.stringify(
+                            {
+                                User: "1",
+                                Page: "New",
+                                PageVM: "",
+                                SessionID: "sessionid"
+                            }
+                    )
+                };
+                $scope.vm.app = { message: "Restore page state" };
+                $http(req).then(onSuccess, onError);
+            }
+            catch (ex) {
+                console.log(ex);
+            }
+        };
+
+        $scope.vm = {
+            gridData: new kendo.data.ObservableArray([]),
+
+            gridColumns: [
                 { field: "ID", title: "ID", filterable: false, type: "inetger" },
                 {
                     field: "Name", title: "Name", type: "string",
@@ -22,65 +98,27 @@
                     }
                 },
                 { field: "Hobbies", title: "Hobbies", filterable: false, type: "string" }
-        ];
+            ],
 
-        $scope.update = function () {
-            try {
-                var req = {
-                    method: 'GET',
-                    url: 'http://localhost/WebApi.Core/api/employee/getallemployee/1',
-                    headers: { 'Content-Type': 'application/json; charset=utf-8' },
-                    data: data
-                };
-                $scope.app = { message: "Searching..." };
-                $http(req).then(onSuccess, onError);
-            }
-            catch (ex) {
-                console.log(ex);
-            }
-        };
+            labels: { lblsearchEmployee: 'Search Employee' },
 
-        onSuccess = function (resonse) {
-            try {
-                $scope.gridData = resonse.data.Result;
-                $scope.app = { message: "Data loaded..." };
-            }
-            catch (ex) {
-                console.log(ex);
-            }
-        };
+            model: { searchByName: "Please enter name" },
 
-        onError = function (error) {
-            alert(error.Result);
-        };
+            app: { message: "Sample application" },
 
-        $scope.labels = {
-            lblsearchEmployee: 'Search Employee'
-        };
-
-        $scope.model = { searchByName: "Please enter name" };
-
-        $scope.app = { message: "Sample application" };
-
-      
-        $scope.onDataBinding = function (e) {
-            kendoConsole.log(e.dataItem);
-        };
-
-        $scope.gridOptions = {
-            
-            dataBinding: $scope.onDataBinding,
-            filterable: { mode: "menu" },
-            columns: $scope.gridColumns,
-            scheme: {
-                model: {
-                    fields: {
-                        ID: { type: "integer" },
-                        Name: { type: "string" },
-                        Hobbies: { type: "string" }
+            gridOptions: {
+                columns: this.gridColumns,
+                scheme: {
+                    model: {
+                        fields: {
+                            ID: { type: "integer" },
+                            Name: { type: "string" },
+                            Hobbies: { type: "string" }
+                        }
                     }
-                }
-            },
+                },
+
+            }
 
         };
     };

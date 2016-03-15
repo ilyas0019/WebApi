@@ -126,6 +126,13 @@ D:\Git.WebApi\WebApi\WebApi.Core\bin\System.Web.Razor.xml
 D:\Git.WebApi\WebApi\WebApi.Core\bin\System.Web.WebPages.xml
 D:\Git.WebApi\WebApi\WebApi.Core\bin\System.Web.WebPages.Deployment.xml
 D:\Git.WebApi\WebApi\WebApi.Core\bin\System.Web.WebPages.Razor.xml
-D:\Git.WebApi\WebApi\WebApi.Core\obj\Debug\WebApi.Core.csprojResolveAssemblyReference.cache
 D:\Git.WebApi\WebApi\WebApi.Core\obj\Debug\WebApi.Core.dll
 D:\Git.WebApi\WebApi\WebApi.Core\obj\Debug\WebApi.Core.pdb
+D:\Git.WebApi\WebApi\WebApi.Core\bin\MongoDB.Bson.dll
+D:\Git.WebApi\WebApi\WebApi.Core\bin\MongoDB.Driver.Core.dll
+D:\Git.WebApi\WebApi\WebApi.Core\bin\MongoDB.Driver.dll
+D:\Git.WebApi\WebApi\WebApi.Core\bin\MongoDB.Bson.xml
+D:\Git.WebApi\WebApi\WebApi.Core\bin\MongoDB.Driver.xml
+D:\Git.WebApi\WebApi\WebApi.Core\bin\MongoDB.QueryHelper.dll
+D:\Git.WebApi\WebApi\WebApi.Core\bin\MongoDB.QueryHelper.pdb
+D:\Git.WebApi\WebApi\WebApi.Core\obj\Debug\WebApi.Core.csprojResolveAssemblyReference.cache

@@ -24,12 +24,16 @@ namespace WebApi.Tests.Controllers
     [TestClass]
     public class EmployeeControllerTest
     {
-        public IEmployeeRepository mockEmployeeRepository;
+        private IEmployeeRepository mockEmployeeRepository;
+        private IMongoDBRepository mockmongoRepository;
+
         EmployeeModel empDetail;
+        MongoModel mongoModel;
 
         public void TestSetup()
         {
             mockEmployeeRepository = new MockEmployeeRepository();
+            mockmongoRepository = new MockMongoRepository();
             empDetail = new EmployeeModel();
         }
 
@@ -43,7 +47,7 @@ namespace WebApi.Tests.Controllers
         public void GetDetails()
         {
             TestSetup();
-            var controller = new EmployeeController(mockEmployeeRepository);
+            var controller = new EmployeeController(mockEmployeeRepository, mockmongoRepository);
             TestSetupController(controller);
             HttpResponseMessage result = controller.GetDetails(empDetail);
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
@@ -53,7 +57,7 @@ namespace WebApi.Tests.Controllers
         public void GetAllEmployee()
         {
             TestSetup();
-            var controller = new EmployeeController(mockEmployeeRepository);
+            var controller = new EmployeeController(mockEmployeeRepository, mockmongoRepository);
             TestSetupController(controller);
             HttpResponseMessage result = controller.GetAllEmployee(empDetail);
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
@@ -64,7 +68,7 @@ namespace WebApi.Tests.Controllers
         {
             var emp = new EmployeeModel { ID = 1, Name = "Updated", Hobbies="Testing" };
             TestSetup();
-            var controller = new EmployeeController(mockEmployeeRepository);
+            var controller = new EmployeeController(mockEmployeeRepository, mockmongoRepository);
             TestSetupController(controller);
             HttpResponseMessage result = controller.UpdateEmployeeById(emp);
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
