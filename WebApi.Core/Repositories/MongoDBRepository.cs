@@ -7,43 +7,36 @@ using System.Configuration;
 using System.Data.CData.MongoDB;
 using System.Linq;
 using System.Web;
+using WebApi.Core.BaseClasses;
 using WebApi.Core.Models;
 using WebApi.Core.Properties;
 
 namespace WebApi.Core.Repositories
 {
-    public class MongoDBRepository : IMongoDBRepository
+    public class MongoDBRepository<T> where T : class
     {
-        MongoCollection<MongoModel> collection;
+
+        public MongoCollection<T> collection;
 
         public MongoDBRepository()
         {
             MongoClient client = new MongoClient(Settings.Default.MongoConnectionString);
             MongoDatabase database = client.GetServer().GetDatabase(Settings.Default.MongoDatabase);
-            collection = database.GetCollection<MongoModel>("pagecollection");
+            collection = database.GetCollection<T>("pagecollection");
         }
 
-        public MongoModel GetPageState(MongoModel objMongo)
+
+        public T GetPageState(IMongoQuery query)
         {
-            var filer =new MongoFilter{ User ="1"};
-                    
-            var query=Query<MongoModel>.EQ(x=> x.User,filer.User);
-
             var result = collection.Find(query).ToList().FirstOrDefault();
-
             return result;
         }
 
-        public void SavePageState(MongoModel objMongo)
+
+        public void SavePageState(T objMongo, IMongoQuery query)
         {
-
-            objMongo.User = "1";
-            objMongo.Page = "2";
-            objMongo.PageVM = "3";
-            objMongo.SessionID = "4";
-
-            collection.Insert(objMongo);
-
+            collection.Update(query, Update.Replace(objMongo), UpdateFlags.Upsert);
         }
+
     }
 }

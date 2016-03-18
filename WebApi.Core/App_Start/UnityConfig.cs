@@ -20,7 +20,7 @@
         {
             IUnityContainer container = new UnityContainer();
             container.RegisterType<IEmployeeRepository, EmployeeRepository>(new HierarchicalLifetimeManager());
-            container.RegisterType<IMongoDBRepository, MongoDBRepository>(new HierarchicalLifetimeManager());
+            //container.RegisterType<IMongoDBRepository, MongoDBRepository>(new HierarchicalLifetimeManager());
             DependencyResolver.SetResolver(new UnityDepandencyResolver(container));
             return container;
         }

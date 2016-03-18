@@ -2,40 +2,83 @@
 <div ng-app="webui" ng-controller="HomePageController">
     <center>
         <h1>
-            {{vm.app.message}}
+            <strong>
+                {{vm.appName}}
+            </strong>
         </h1>
+        <h2 style="color:magenta">
+            This form will be autosave in : {{countdown}} sec.
+        </h2>
+        <h3 style="color:green">
+            {{vm.app.message}} {{autoSaved | date:"MM/dd/yyyy 'at' h:mma"}}
+        </h3>
     </center>
+    <div>
 
-    <div style="width:500px;">
-        <div id="grdKendoGrid"
-             kendo-grid
-             k-pagesize="5"
-             k-options="vm.gridOptions"
-             k-data-source="vm.gridData"
-             k-pageable="true">
+
+        <div style="float:left;width:40%">
+            <dl>
+                <dt>
+                    <strong> Employee infomation</strong>
+                </dt>
+                <dd>
+                    <label for="txtEmployee">Employee</label><input id="txtEmployee" type="text" ng-model="vm.employee.data.Name" />
+                </dd>
+                <dd>
+                    <label for="txtDepartment">Department</label><input id="txtDepartment" type="text" ng-model="vm.employee.data.Department" />
+                </dd>
+                <dd>
+                    <label for="ddlLocation">Country</label>
+                    <select id="ddlLocation" ng-options="item.name for item in vm.employee.location" ng-model="vm.employee.data.Location"></select>
+                    selected: {{ vm.employee.data.Location }}
+                </dd>
+                <dd>
+                    <label for="ddlStates">State</label>
+                    <select id="ddlStates" ng-options="item.name for item in vm.employee.states" ng-model="vm.employee.data.State"></select>
+                    selected: {{ vm.employee.data.State }}
+                </dd>
+                <dd>
+                    <label for="txtProject">Project</label><input id="txtProject" type="text" ng-model="vm.employee.data.Project" />
+                </dd>
+
+                <dd>
+                    <label for="txtDate">Project</label><input id="txtDate" type="text" ng-model="vm.employee.data.JDate" />
+                </dd>
+
+            </dl>
         </div>
 
-        <button kendo-button ng-click="update()">
-            Load more...
-        </button>
 
-        <button kendo-button ng-click="savepagestate()">
-            Save page state
-        </button>
-
-        <button kendo-button ng-click="getpagestate()">
-            Get page state
-        </button>
+        <div style="float:left;width:40%">
+            <div id="grdKendoGrid"
+                 kendo-grid
+                 k-pagesize="5"
+                 k-options="vm.gridOptions"
+                 k-data-source="vm.gridData"
+                 k-pageable="true">
+            </div>
+        </div>
 
     </div>
+    <div style="float:left;width:100%">
+        <button kendo-button ng-click="actions.loaddata()">
+            Load grid data
+        </button>
 
+        <button kendo-button ng-click="actions.savepagestate()">
+            Save current page state
+        </button>
 
+        <button kendo-button ng-click="actions.getpagestate()">
+            Get saved page state
+        </button>
+    </div>
     @*<h2>Route Demos</h2>
-    <ol>
-        <li><a href="/#/routeOne">Take One</a></li>
-        <li><a href="/#/routeTwo">Route Two</a></li>
-        <li><a href="/#/routeThree">Take Three</a></li>
-    </ol>*@
+        <ol>
+            <li><a href="/#/routeOne">Take One</a></li>
+            <li><a href="/#/routeTwo">Route Two</a></li>
+            <li><a href="/#/routeThree">Take Three</a></li>
+        </ol>*@
 
     <div ng-view></div>
 </div>

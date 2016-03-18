@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
 using System.Net.Http.Headers;
+using WebApi.Core.BaseClasses;
 
 namespace WebApi.Core
 {
@@ -17,7 +18,7 @@ namespace WebApi.Core
             // Web API configuration and services
             var container = new UnityContainer();
             container.RegisterType<IEmployeeRepository, EmployeeRepository>(new HierarchicalLifetimeManager());
-            container.RegisterType<IMongoDBRepository, MongoDBRepository>(new HierarchicalLifetimeManager());
+            //container.RegisterType<IMongoDBRepository, MongoDBRepository>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityAPIResolver(container);
 
 

@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.SessionState;
 
 namespace WebApi.UI
 {
@@ -21,6 +22,20 @@ namespace WebApi.UI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
         }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            SessionIDManager manager = new SessionIDManager();
+            string newSessionId = manager.CreateSessionID(HttpContext.Current);
+            
+            var ckSession = new HttpCookie("omg-session");
+            ckSession.Value = newSessionId;
+            HttpContext.Current.Response.Cookies.Add(ckSession);
+
+        }
+
+
     }
 }
