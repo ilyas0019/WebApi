@@ -9,7 +9,6 @@ namespace WebApi.Core.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public string Location { get; set; }
         public string Department { get; set; }
         public string Country { get; set; }
         public string State { get; set; }

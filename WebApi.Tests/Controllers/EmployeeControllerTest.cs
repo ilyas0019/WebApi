@@ -25,7 +25,7 @@ namespace WebApi.Tests.Controllers
     public class EmployeeControllerTest
     {
         private IEmployeeRepository mockEmployeeRepository;
-        private IMongoDBRepository mockmongoRepository;
+        //private IMongoDBRepository mockmongoRepository;
 
         EmployeeModel empDetail;
         MongoModel mongoModel;
@@ -33,7 +33,6 @@ namespace WebApi.Tests.Controllers
         public void TestSetup()
         {
             mockEmployeeRepository = new MockEmployeeRepository();
-            mockmongoRepository = new MockMongoRepository();
             empDetail = new EmployeeModel();
         }
 

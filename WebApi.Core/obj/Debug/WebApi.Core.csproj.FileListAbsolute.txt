@@ -135,4 +135,3 @@ D:\Git.WebApi\WebApi\WebApi.Core\bin\MongoDB.Bson.xml
 D:\Git.WebApi\WebApi\WebApi.Core\bin\MongoDB.Driver.xml
 D:\Git.WebApi\WebApi\WebApi.Core\bin\MongoDB.QueryHelper.dll
 D:\Git.WebApi\WebApi\WebApi.Core\bin\MongoDB.QueryHelper.pdb
-D:\Git.WebApi\WebApi\WebApi.Core\obj\Debug\WebApi.Core.csprojResolveAssemblyReference.cache

@@ -1,0 +1,5 @@
+D:\Git.WebApi\WebApi\Sample\bin\Debug\Sample.exe.config
+D:\Git.WebApi\WebApi\Sample\bin\Debug\Sample.exe
+D:\Git.WebApi\WebApi\Sample\bin\Debug\Sample.pdb
+D:\Git.WebApi\WebApi\Sample\obj\Debug\Sample.exe
+D:\Git.WebApi\WebApi\Sample\obj\Debug\Sample.pdb

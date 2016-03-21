@@ -117,3 +117,6 @@ C:\Users\mohdi\Documents\Visual Studio 2013\Projects\WebApi\WebApi.Tests\obj\Deb
 C:\Users\mohdi\Documents\Visual Studio 2013\Projects\WebApi\WebApi.Tests\obj\Debug\WebApi.Tests.pdb
 C:\Users\mohdi\Documents\Visual Studio 2013\Projects\WebApi\WebApi.Tests\bin\Debug\StyleCop.CSharp.dll
 C:\Users\mohdi\Documents\Visual Studio 2013\Projects\WebApi\WebApi.Tests\bin\Debug\StyleCop.dll
+D:\Git.WebApi\WebApi\WebApi.Tests\obj\Debug\WebApi.Core.Tests.csprojResolveAssemblyReference.cache
+D:\Git.WebApi\WebApi\WebApi.Tests\obj\Debug\WebApi.Tests.dll
+D:\Git.WebApi\WebApi\WebApi.Tests\obj\Debug\WebApi.Tests.pdb
