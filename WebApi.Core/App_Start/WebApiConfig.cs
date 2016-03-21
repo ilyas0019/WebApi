@@ -18,7 +18,6 @@ namespace WebApi.Core
             // Web API configuration and services
             var container = new UnityContainer();
             container.RegisterType<IEmployeeRepository, EmployeeRepository>(new HierarchicalLifetimeManager());
-            //container.RegisterType<IMongoDBRepository, MongoDBRepository>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityAPIResolver(container);
 
 

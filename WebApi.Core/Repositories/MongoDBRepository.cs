@@ -13,7 +13,7 @@ using WebApi.Core.Properties;
 
 namespace WebApi.Core.Repositories
 {
-    public class MongoDBRepository<T> where T : class
+    public class MongoDBRepository<T> where T : class //, IMongoDBRepository<T>
     {
 
         public MongoCollection<T> collection;
@@ -22,7 +22,7 @@ namespace WebApi.Core.Repositories
         {
             MongoClient client = new MongoClient(Settings.Default.MongoConnectionString);
             MongoDatabase database = client.GetServer().GetDatabase(Settings.Default.MongoDatabase);
-            collection = database.GetCollection<T>("pagecollection");
+            collection = database.GetCollection<T>("pages-collection");
         }
 
 

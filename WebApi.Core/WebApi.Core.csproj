@@ -191,6 +191,7 @@
     </Compile>
     <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\IEmployeeRepository.cs" />
+    <Compile Include="Repositories\IMongoDBRepository.cs" />
     <Compile Include="Repositories\MongoDBRepository.cs" />
   </ItemGroup>
   <ItemGroup>

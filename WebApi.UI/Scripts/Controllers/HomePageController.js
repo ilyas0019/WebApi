@@ -105,8 +105,6 @@
             }
         };
 
-     
-
         $scope.vm = {
 
             employee: {
