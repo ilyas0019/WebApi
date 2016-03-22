@@ -20,7 +20,6 @@ namespace WebApi.Core
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             UnityConfig.Initialize(GlobalConfiguration.Configuration);
         }

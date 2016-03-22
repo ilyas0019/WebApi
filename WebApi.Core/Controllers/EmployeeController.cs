@@ -21,11 +21,13 @@ namespace WebApi.Core.Controllers
         private readonly IEmployeeRepository employeeRepository;
         private readonly MongoDBRepository<MongoModel> mongoRepository;
         
-        public EmployeeController(IEmployeeRepository prmEmployeeRepository) : base(prmEmployeeRepository)
+        public EmployeeController(IEmployeeRepository prmEmployeeRepository)
         {
             this.employeeRepository = prmEmployeeRepository;
             mongoRepository = new MongoDBRepository<MongoModel>();
+            
         }
+
 
         [HttpGet]
         [ActionName("GetDetails")]
@@ -100,15 +102,19 @@ namespace WebApi.Core.Controllers
         {
             try
             {
+
+                var cookie = HttpContext.Current.Request.Cookies.Get("omg-session");
+
+                mongoModel._id = cookie.Value;
+
                 var entityQuery = Query.And(
-                      Query<MongoModel>.EQ(e => e.Id, "1"),
-                      Query<MongoModel>.EQ(e => e.SessionID, (new SessionIDManager()).GetSessionID(HttpContext.Current))
+                      Query<MongoModel>.EQ(e => e.UserId, mongoModel.UserId)
                   );
 
-                mongoModel.SessionID = (new SessionIDManager()).GetSessionID(HttpContext.Current);
+
                 mongoRepository.SavePageState(mongoModel, entityQuery);
 
-                return Request.CreateResponse<APIResponse>(HttpStatusCode.OK, new APIResponse { Result = null });
+                return Request.CreateResponse<MongoModel>(HttpStatusCode.OK, mongoModel);
             }
             catch (Exception ex)
             {
@@ -121,14 +127,16 @@ namespace WebApi.Core.Controllers
         [ActionName("GetPageState")]
         public HttpResponseMessage GetPageState(int id)
         {
-            
+
             try
             {
+                var cookie = HttpContext.Current.Request.Cookies.Get("omg-session");
+                var sessionId = cookie.Value;
 
                 var entityQuery = Query.And(
-                      Query<MongoModel>.EQ(e => e.Id, id.ToString()),
-                      Query<MongoModel>.EQ(e => e.SessionID, (new SessionIDManager()).GetSessionID(HttpContext.Current))
+                      Query<MongoModel>.EQ(e => e.UserId, id.ToString())
                   );
+
 
                 var result = mongoRepository.GetPageState(entityQuery);
 

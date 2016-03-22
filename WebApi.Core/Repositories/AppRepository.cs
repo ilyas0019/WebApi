@@ -13,32 +13,25 @@ using WebApi.Core.Properties;
 
 namespace WebApi.Core.Repositories
 {
-    public class MongoDBRepository<T> where T : class 
+    public class AppRepository<T>
     {
 
         public MongoCollection<T> collection;
 
-        public MongoDBRepository()
+        public AppRepository()
         {
             MongoClient client = new MongoClient(Settings.Default.MongoConnectionString);
             MongoDatabase database = client.GetServer().GetDatabase(Settings.Default.MongoDatabase);
-            collection = database.GetCollection<T>("pages-collection");
+            collection = database.GetCollection<T>("system.js");
         }
 
 
-        public T GetPageState(IMongoQuery query)
+        public T GetSystemStoredProcedureName(IMongoQuery query)
         {
             var result = collection.Find(query).ToList().FirstOrDefault();
             return result;
         }
 
-
-        public T SavePageState(T objMongo, IMongoQuery query)
-        {
-            collection.Remove(query);
-            collection.Update(query, Update.Replace(objMongo), UpdateFlags.Upsert);
-            return objMongo;
-        }
 
     }
 }

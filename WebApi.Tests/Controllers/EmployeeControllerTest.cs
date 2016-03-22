@@ -28,7 +28,6 @@ namespace WebApi.Tests.Controllers
         //private IMongoDBRepository mockmongoRepository;
 
         EmployeeModel empDetail;
-        MongoModel mongoModel;
 
         public void TestSetup()
         {
@@ -46,7 +45,7 @@ namespace WebApi.Tests.Controllers
         public void GetDetails()
         {
             TestSetup();
-            var controller = new EmployeeController(mockEmployeeRepository, mockmongoRepository);
+            var controller = new EmployeeController(mockEmployeeRepository);
             TestSetupController(controller);
             HttpResponseMessage result = controller.GetDetails(empDetail);
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
@@ -56,7 +55,7 @@ namespace WebApi.Tests.Controllers
         public void GetAllEmployee()
         {
             TestSetup();
-            var controller = new EmployeeController(mockEmployeeRepository, mockmongoRepository);
+            var controller = new EmployeeController(mockEmployeeRepository);
             TestSetupController(controller);
             HttpResponseMessage result = controller.GetAllEmployee(empDetail);
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
@@ -65,9 +64,9 @@ namespace WebApi.Tests.Controllers
         [TestMethod]
         public void UpdateDetails()
         {
-            var emp = new EmployeeModel { ID = 1, Name = "Updated", Hobbies="Testing" };
+            var emp = new EmployeeModel { ID = 1, Name = "Updated"};
             TestSetup();
-            var controller = new EmployeeController(mockEmployeeRepository, mockmongoRepository);
+            var controller = new EmployeeController(mockEmployeeRepository);
             TestSetupController(controller);
             HttpResponseMessage result = controller.UpdateEmployeeById(emp);
             Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);

@@ -12,7 +12,7 @@ namespace WebApi.Core.BaseClasses
 {
     public class BaseApiController : ApiController
     {
-        public BaseApiController(IEmployeeRepository iEmployee) 
+        public BaseApiController() 
         {
 
         }

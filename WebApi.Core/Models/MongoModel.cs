@@ -10,11 +10,10 @@ namespace WebApi.Core.Models
 {
     public class MongoModel//: IMongoEntity
     {
-        public string Id { get; set; }
-        public string User { get; set; }
+        public string _id { get; set; }
+        public string UserId { get; set; }
         public string Page { get; set; }
         public string PageVM { get; set; }
-        public string SessionID { get; set; }
         public DateTime TimeStamp { get; set; }
     }
 }

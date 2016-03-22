@@ -167,13 +167,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityDepandency.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BaseClasses\BaseApiController.cs" />
+    <Compile Include="Controllers\AppLoadController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\APIRequest.cs" />
     <Compile Include="Entities\APIResponse.cs" />
     <Compile Include="Entities\IAPIRequest.cs" />
@@ -191,7 +190,8 @@
     </Compile>
     <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\IEmployeeRepository.cs" />
-    <Compile Include="Repositories\IMongoDBRepository.cs" />
+    <Compile Include="Repositories\AppRepository.cs" />
+    <Compile Include="Models\AppModel.cs" />
     <Compile Include="Repositories\MongoDBRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -205,9 +205,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

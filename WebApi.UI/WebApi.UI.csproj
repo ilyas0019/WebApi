@@ -137,7 +137,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RoutesDemoController.cs" />
+    <Compile Include="Controllers\RoutesController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1017,8 +1017,8 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\Controllers\HomePageController.js" />
-    <Content Include="Scripts\Controllers\JavaScript1.js" />
+    <Content Include="AppScripts\Controllers\HomePageController.js" />
+    <Content Include="AppScripts\Controllers\JavaScript1.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
@@ -1937,7 +1937,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
-    <Content Include="Scripts\webui.js" />
+    <Content Include="AppScripts\webui.js" />
     <Content Include="styles\Black\editor.png" />
     <Content Include="styles\Black\imagebrowser.png" />
     <Content Include="styles\Black\indeterminate.gif" />
@@ -2399,9 +2399,7 @@
     <Content Include="styles\kendo.uniform.min.css.map" />
     <Content Include="styles\kendo.uniform.mobile.min.css.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

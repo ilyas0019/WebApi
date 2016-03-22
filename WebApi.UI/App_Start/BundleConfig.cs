@@ -10,8 +10,8 @@ namespace WebApi.UI
         {
             //***********************************************************
             bundles.Add(new ScriptBundle("~/bundles/webui")
-                    .IncludeDirectory("~/Scripts/Controllers", "*.js")
-                    .Include("~/Scripts/webui.js"));
+                    .IncludeDirectory("~/AppScripts/Controllers", "*.js")
+                    .Include("~/AppScripts/webui.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
                 .Include("~/Scripts/angular.js"));

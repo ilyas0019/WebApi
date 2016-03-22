@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace WebApi.UI.Controllers
 {
-    public class RoutesDemoController : Controller
+    public class RoutesController : Controller
     {
 
         public ActionResult One()

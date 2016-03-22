@@ -22,20 +22,16 @@ namespace WebApi.UI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
-
         }
 
-        protected void Application_BeginRequest(object sender, EventArgs e)
+        protected void Session_Start(Object sender, EventArgs e)
         {
             SessionIDManager manager = new SessionIDManager();
             string newSessionId = manager.CreateSessionID(HttpContext.Current);
-            
+
             var ckSession = new HttpCookie("omg-session");
             ckSession.Value = newSessionId;
             HttpContext.Current.Response.Cookies.Add(ckSession);
-
         }
-
-
     }
 }
