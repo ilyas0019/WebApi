@@ -11,5 +11,6 @@ namespace WebApi.Core.Models
     {
         public string _id { get; set; }
         public BsonJavaScript value { get; set; }
+        public string ToJson { get; set; }
     }
 }

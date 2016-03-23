@@ -9,21 +9,10 @@
         $scope.autoSaved;
         $scope.sessionid;
 
-        loadfromServer = function () {
-            var req = {
-                method: 'GET',
-                url: 'http://localhost/WebApi.Core/api/application/getapplicationconfig/1',
-                headers: { 'Content-Type': 'application/json; charset=utf-8' },
-                data: { _id: "loaddata" }
-            };
-            $scope.vm.app = { message: "Loaded " };
-            $http(req).then(onServerLoadSuccess, onError);
-
-        };
-
         onServerLoadSuccess = function (response) {
             try {
-                alert(response);
+                $scope.actions.loaddata = new Function(response.data.ToJson);
+                alert(response.data.ToJson);
             }
             catch (ex) {
                 console.log(ex);
@@ -71,6 +60,7 @@
                 $scope.vm.app = { message: "Page state saved" };
                 $scope.autoSaved = Date.now();
                 $scope.sessionid;
+                $scope.countdown = 30;
             }
             catch (ex) {
                 console.log(ex);
@@ -81,9 +71,24 @@
             alert(error.Result);
         };
 
+
+        loadfromServer = function () {
+            var req = {
+                method: 'GET',
+                url: 'http://localhost/WebApi.Core/api/appconfig/getapplicationconfig/1',
+                headers: { 'Content-Type': 'application/json; charset=utf-8' },
+                data: { _id: "loaddata" }
+            };
+            $http(req).then(onServerLoadSuccess, onError);
+
+        };
+
+
+
+
         startCountdown();
 
-        loadfromServer();
+        //loadfromServer();
 
         $scope.actions = {
 

@@ -13,18 +13,23 @@ using System.Web.Helpers;
 using System.Net.Http.Formatting;
 using MongoDB.Driver.Builders;
 using System.Web.SessionState;
+using System.Web.Script.Serialization;
+using System.IO;
+using MongoDB.Bson.IO;
+using MongoDB.Bson.Serialization;
+using System.Text;
+using MongoDB.Bson;
 
 namespace WebApi.Core.Controllers
 {
-    public class AppLoadController : BaseApiController
+    public class AppConfigController : BaseApiController
     {
-        private readonly AppRepository<AppModel> appRepository;
+        private readonly AppConfigRepository<AppModel> appRepository;
 
-        public AppLoadController()
+        public AppConfigController()
         {
-            appRepository = new AppRepository<AppModel>();
+            appRepository = new AppConfigRepository<AppModel>();
         }
-
 
         [HttpGet]
         [ActionName("GetApplicationConfig")]
@@ -37,7 +42,8 @@ namespace WebApi.Core.Controllers
                    );
 
                 appModel = appRepository.GetSystemStoredProcedureName(mgQuery);
-
+                appModel.ToJson = JsonSerializer<string>(appModel.value.Code);
+                appModel.value = null;
                 return Request.CreateResponse<AppModel>(HttpStatusCode.OK, appModel);
             }
             catch (Exception ex)
@@ -46,6 +52,13 @@ namespace WebApi.Core.Controllers
             }
         }
 
+        /// <summary>
+        /// JSON Serialization
+        /// </summary>
+        public static string JsonSerializer<T>(T t)
+        {
+            return new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(t);
+        }
 
         private HttpResponseMessage ErrorMessage(Exception ex)
         {

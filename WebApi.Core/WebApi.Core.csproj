@@ -171,7 +171,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BaseClasses\BaseApiController.cs" />
-    <Compile Include="Controllers\AppLoadController.cs" />
+    <Compile Include="Controllers\AppConfigController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Entities\APIRequest.cs" />
     <Compile Include="Entities\APIResponse.cs" />
@@ -190,7 +190,7 @@
     </Compile>
     <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\IEmployeeRepository.cs" />
-    <Compile Include="Repositories\AppRepository.cs" />
+    <Compile Include="Repositories\AppConfigRepository.cs" />
     <Compile Include="Models\AppModel.cs" />
     <Compile Include="Repositories\MongoDBRepository.cs" />
   </ItemGroup>

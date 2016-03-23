@@ -13,12 +13,12 @@ using WebApi.Core.Properties;
 
 namespace WebApi.Core.Repositories
 {
-    public class AppRepository<T>
+    public class AppConfigRepository<T>
     {
 
         public MongoCollection<T> collection;
 
-        public AppRepository()
+        public AppConfigRepository()
         {
             MongoClient client = new MongoClient(Settings.Default.MongoConnectionString);
             MongoDatabase database = client.GetServer().GetDatabase(Settings.Default.MongoDatabase);
