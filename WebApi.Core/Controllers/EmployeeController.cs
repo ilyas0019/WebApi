@@ -19,13 +19,11 @@ namespace WebApi.Core.Controllers
     public class EmployeeController : BaseApiController
     {
         private readonly IEmployeeRepository employeeRepository;
-        private readonly MongoDBRepository<MongoModel> mongoRepository;
+        
         
         public EmployeeController(IEmployeeRepository prmEmployeeRepository)
         {
             this.employeeRepository = prmEmployeeRepository;
-            mongoRepository = new MongoDBRepository<MongoModel>();
-            
         }
 
 
@@ -111,8 +109,7 @@ namespace WebApi.Core.Controllers
                       Query<MongoModel>.EQ(e => e.UserId, mongoModel.UserId)
                   );
 
-
-                mongoRepository.SavePageState(mongoModel, entityQuery);
+                base.SavePageState<MongoModel>(mongoModel, entityQuery);
 
                 return Request.CreateResponse<MongoModel>(HttpStatusCode.OK, mongoModel);
             }
@@ -138,7 +135,7 @@ namespace WebApi.Core.Controllers
                   );
 
 
-                var result = mongoRepository.GetPageState(entityQuery);
+                var result = base.GetPageState<MongoModel>(entityQuery);
 
                 return Request.CreateResponse<MongoModel>(HttpStatusCode.OK, result);
             }
