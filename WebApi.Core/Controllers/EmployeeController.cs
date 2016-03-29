@@ -13,17 +13,21 @@ using System.Web.Helpers;
 using System.Net.Http.Formatting;
 using MongoDB.Driver.Builders;
 using System.Web.SessionState;
+using WebApi.Core.Properties;
 
 namespace WebApi.Core.Controllers
 {
     public class EmployeeController : BaseApiController
     {
         private readonly IEmployeeRepository employeeRepository;
-        
-        
+        private static string connectionString = Settings.Default.MongoConnectionString;
+        private static string mongoDBName = Settings.Default.MongoDatabase;
+
         public EmployeeController(IEmployeeRepository prmEmployeeRepository)
+            : base(connectionString, mongoDBName)
         {
-            this.employeeRepository = prmEmployeeRepository;
+            employeeRepository = prmEmployeeRepository;
+            CollectionName = "pages-collection";
         }
 
 
@@ -65,7 +69,6 @@ namespace WebApi.Core.Controllers
             {
                 var employee = employeeRepository.GetEmployeeById(empDetail);
                 emp.Add(employee);
-
                 return Request.CreateResponse<APIResponse>(HttpStatusCode.OK, new APIResponse { Result = emp });
             }
             catch (Exception ex)
@@ -83,7 +86,6 @@ namespace WebApi.Core.Controllers
             {
                 var employee = employeeRepository.UpdateEmployeeById(empDetail);
                 emp.Add(employee);
-
                 return Request.CreateResponse<APIResponse>(HttpStatusCode.OK, new APIResponse { Result = emp });
             }
             catch (Exception ex)
@@ -102,15 +104,11 @@ namespace WebApi.Core.Controllers
             {
 
                 var cookie = HttpContext.Current.Request.Cookies.Get("omg-session");
-
                 mongoModel._id = cookie.Value;
-
                 var entityQuery = Query.And(
                       Query<MongoModel>.EQ(e => e.UserId, mongoModel.UserId)
                   );
-
-                base.SavePageState<MongoModel>(mongoModel, entityQuery);
-
+                SaveDataToCollection<MongoModel>(mongoModel, entityQuery);
                 return Request.CreateResponse<MongoModel>(HttpStatusCode.OK, mongoModel);
             }
             catch (Exception ex)
@@ -129,14 +127,11 @@ namespace WebApi.Core.Controllers
             {
                 var cookie = HttpContext.Current.Request.Cookies.Get("omg-session");
                 var sessionId = cookie.Value;
-
                 var entityQuery = Query.And(
                       Query<MongoModel>.EQ(e => e.UserId, id.ToString())
                   );
 
-
-                var result = base.GetPageState<MongoModel>(entityQuery);
-
+                var result = base.GetDataFromCollection<MongoModel>(entityQuery);
                 return Request.CreateResponse<MongoModel>(HttpStatusCode.OK, result);
             }
             catch (Exception ex)
@@ -149,5 +144,6 @@ namespace WebApi.Core.Controllers
         {
             return Request.CreateResponse<ApplicationException>(HttpStatusCode.ExpectationFailed, new ApplicationException { Source = ex.Message });
         }
+
     }
 }

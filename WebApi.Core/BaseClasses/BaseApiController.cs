@@ -13,26 +13,54 @@ using WebApi.Core.Repositories;
 
 namespace WebApi.Core.BaseClasses
 {
-    public class BaseApiController : ApiController
+    public abstract class BaseApiController : ApiController
     {
 
-        protected T GetPageState<T>(IMongoQuery query)
+        MongoClient mongoClient;
+        MongoDatabase database;
+        MongoCollection collection;
+        public string CollectionName { get; set; }
+
+        public BaseApiController()
         {
-            MongoDatabase database = new MongoClient(Settings.Default.MongoConnectionString).GetServer().GetDatabase(Settings.Default.MongoDatabase);
-            MongoCollection collection = database.GetCollection<T>("pages-collection");
+            mongoClient = new MongoClient(Settings.Default.MongoConnectionString);
+            database = mongoClient.GetServer().GetDatabase(Settings.Default.MongoDatabase);
+        }
+
+
+        public BaseApiController(string connectionString, string mongoDBName)
+        {
+            mongoClient = new MongoClient(connectionString);
+            database = mongoClient.GetServer().GetDatabase(mongoDBName);
+        }
+
+        protected virtual T GetDataFromCollection<T>(IMongoQuery query)
+        {
+            mongoClient = GetServerState();
+            collection = database.GetCollection<T>(CollectionName);
             var result = collection.FindAs<T>(query).ToList().FirstOrDefault();
+            mongoClient.GetServer().Disconnect();
             return result;
         }
 
 
-        protected T SavePageState<T>(T objMongo, IMongoQuery query)
+        protected virtual T SaveDataToCollection<T>(T objMongo, IMongoQuery query)
         {
-            MongoDatabase database = new MongoClient(Settings.Default.MongoConnectionString).GetServer().GetDatabase(Settings.Default.MongoDatabase);
-            MongoCollection collection = database.GetCollection<T>("pages-collection");
+            mongoClient = GetServerState();
+            collection = database.GetCollection<T>(CollectionName);
             collection.Remove(query);
             collection.Update(query, Update.Replace(objMongo), UpdateFlags.Upsert);
+            mongoClient.GetServer().Disconnect();
             return objMongo;
         }
 
+        private MongoClient GetServerState()
+        {
+            if (mongoClient.GetServer().State == MongoServerState.Disconnected)
+            {
+                mongoClient.GetServer().Connect();
+            }
+            return mongoClient;
+        }
     }
 }

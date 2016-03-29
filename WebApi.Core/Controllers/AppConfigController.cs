@@ -19,16 +19,19 @@ using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using System.Text;
 using MongoDB.Bson;
+using WebApi.Core.Properties;
 
 namespace WebApi.Core.Controllers
 {
     public class AppConfigController : BaseApiController
     {
-        private readonly AppConfigRepository<AppModel> appRepository;
 
-        public AppConfigController()
+        private static string connectionString = Settings.Default.MongoConnectionString;
+        private static string mongoDBName = Settings.Default.MongoDatabase;
+
+        public AppConfigController(): base (connectionString,mongoDBName)
         {
-            appRepository = new AppConfigRepository<AppModel>();
+            CollectionName = "systems.js";
         }
 
         [HttpGet]
@@ -40,9 +43,7 @@ namespace WebApi.Core.Controllers
                 var mgQuery = Query.And(
                        Query<MongoModel>.EQ(e => e._id, "loaddata")
                    );
-
-                appModel = appRepository.GetSystemStoredProcedureName(mgQuery);
-                appModel.ToJson = JsonSerializer<string>(appModel.value.Code);
+                appModel = GetDataFromCollection<AppModel>(mgQuery);
                 appModel.value = null;
                 return Request.CreateResponse<AppModel>(HttpStatusCode.OK, appModel);
             }
@@ -52,13 +53,6 @@ namespace WebApi.Core.Controllers
             }
         }
 
-        /// <summary>
-        /// JSON Serialization
-        /// </summary>
-        public static string JsonSerializer<T>(T t)
-        {
-            return new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(t);
-        }
 
         private HttpResponseMessage ErrorMessage(Exception ex)
         {

@@ -188,3 +188,4 @@ C:\Projects\WebApi\WebApi.Core\obj\Debug\WebApi.Core.dll
 C:\Projects\WebApi\WebApi.Core\obj\Debug\WebApi.Core.pdb
 C:\Projects\WebApi\WebApi.Core\bin\Microsoft.Build.Utilities.v3.5.dll
 C:\Projects\WebApi\WebApi.Core\bin\Microsoft.Build.Utilities.v3.5.xml
+D:\Git.WebApi\WebApi\WebApi.Core\obj\Debug\WebApi.Core.csprojResolveAssemblyReference.cache

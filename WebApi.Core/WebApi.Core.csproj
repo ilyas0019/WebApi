@@ -191,9 +191,7 @@
     </Compile>
     <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\IEmployeeRepository.cs" />
-    <Compile Include="Repositories\AppConfigRepository.cs" />
     <Compile Include="Models\AppModel.cs" />
-    <Compile Include="Repositories\MongoDBRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
