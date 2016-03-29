@@ -424,7 +424,7 @@
     <timestamps>
       <styleCop>2016/02/02 16:43:39.392</styleCop>
       <settingsFile>2016/02/02 16:43:39.382</settingsFile>
-      <sourceFile>2016/03/22 13:51:07.786</sourceFile>
+      <sourceFile>2016/03/22 17:25:00.054</sourceFile>
       <parser>2016/02/02 16:43:39.392</parser>
       <StyleCop.CSharp.DocumentationRules>2016/02/02 16:43:39.392</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1460332687</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -632,7 +632,7 @@
       </violation>
       <violation namespace="StyleCop.CSharp.LayoutRules" rule="ClosingCurlyBracketsMustNotBePrecededByBlankLine" ruleCheckId="SA1508">
         <context>A closing curly bracket must not be preceded by a blank line.</context>
-        <line>77</line>
+        <line>76</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
@@ -683,22 +683,22 @@
       </violation>
       <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
         <context>Only tab characters are allowed to be used for indentation.</context>
-        <line>45</line>
+        <line>44</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
         <context>Only tab characters are allowed to be used for indentation.</context>
-        <line>55</line>
+        <line>54</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
         <context>Only tab characters are allowed to be used for indentation.</context>
-        <line>65</line>
+        <line>64</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
         <context>Only tab characters are allowed to be used for indentation.</context>
-        <line>75</line>
+        <line>74</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
@@ -737,50 +737,35 @@
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>31</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.MaintainabilityRules" rule="AccessModifierMustBeDeclared" ruleCheckId="SA1400">
-        <context>The field must have an access modifier.</context>
-        <line>31</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="AdvancedNamingRules" ruleCheckId="SP0100">
-        <context>Instance field (private) name mongoModel doesn't conform the specified style: m_sampleName.</context>
-        <line>31</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
-        <context>Only tab characters are allowed to be used for indentation.</context>
-        <line>31</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
         <context>The method must have a documentation header.</context>
-        <line>33</line>
+        <line>32</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to mockEmployeeRepository must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>35</line>
-        <index>911</index>
-        <endIndex>932</endIndex>
-        <startLine>35</startLine>
+        <line>34</line>
+        <index>879</index>
+        <endIndex>900</endIndex>
+        <startLine>34</startLine>
         <startColumn>13</startColumn>
-        <endLine>35</endLine>
+        <endLine>34</endLine>
         <endColumn>34</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to empDetail must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>36</line>
-        <index>979</index>
-        <endIndex>987</endIndex>
-        <startLine>36</startLine>
+        <line>35</line>
+        <index>947</index>
+        <endIndex>955</endIndex>
+        <startLine>35</startLine>
         <startColumn>13</startColumn>
-        <endLine>36</endLine>
+        <endLine>35</endLine>
         <endColumn>21</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
+        <context>Only tab characters are allowed to be used for indentation.</context>
+        <line>32</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
@@ -803,14 +788,14 @@
         <line>36</line>
         <warning>False</warning>
       </violation>
-      <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
-        <context>Only tab characters are allowed to be used for indentation.</context>
-        <line>37</line>
-        <warning>False</warning>
-      </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
         <context>The method must have a documentation header.</context>
-        <line>39</line>
+        <line>38</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
+        <context>Only tab characters are allowed to be used for indentation.</context>
+        <line>38</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
@@ -833,58 +818,58 @@
         <line>42</line>
         <warning>False</warning>
       </violation>
-      <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
-        <context>Only tab characters are allowed to be used for indentation.</context>
-        <line>43</line>
-        <warning>False</warning>
-      </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
         <context>The method must have a documentation header.</context>
-        <line>46</line>
+        <line>45</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to TestSetup must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>48</line>
-        <index>1372</index>
-        <endIndex>1380</endIndex>
-        <startLine>48</startLine>
+        <line>47</line>
+        <index>1340</index>
+        <endIndex>1348</endIndex>
+        <startLine>47</startLine>
         <startColumn>13</startColumn>
-        <endLine>48</endLine>
+        <endLine>47</endLine>
         <endColumn>21</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to mockEmployeeRepository must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>49</line>
-        <index>1438</index>
-        <endIndex>1459</endIndex>
-        <startLine>49</startLine>
+        <line>48</line>
+        <index>1406</index>
+        <endIndex>1427</endIndex>
+        <startLine>48</startLine>
         <startColumn>53</startColumn>
-        <endLine>49</endLine>
+        <endLine>48</endLine>
         <endColumn>74</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to TestSetupController must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>50</line>
-        <index>1476</index>
-        <endIndex>1494</endIndex>
-        <startLine>50</startLine>
+        <line>49</line>
+        <index>1444</index>
+        <endIndex>1462</endIndex>
+        <startLine>49</startLine>
         <startColumn>13</startColumn>
-        <endLine>50</endLine>
+        <endLine>49</endLine>
         <endColumn>31</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to empDetail must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>51</line>
-        <index>1573</index>
-        <endIndex>1581</endIndex>
-        <startLine>51</startLine>
+        <line>50</line>
+        <index>1541</index>
+        <endIndex>1549</endIndex>
+        <startLine>50</startLine>
         <startColumn>64</startColumn>
-        <endLine>51</endLine>
+        <endLine>50</endLine>
         <endColumn>72</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
+        <context>Only tab characters are allowed to be used for indentation.</context>
+        <line>45</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
@@ -922,58 +907,58 @@
         <line>52</line>
         <warning>False</warning>
       </violation>
-      <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
-        <context>Only tab characters are allowed to be used for indentation.</context>
-        <line>53</line>
-        <warning>False</warning>
-      </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
         <context>The method must have a documentation header.</context>
-        <line>56</line>
+        <line>55</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to TestSetup must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>58</line>
-        <index>1750</index>
-        <endIndex>1758</endIndex>
-        <startLine>58</startLine>
+        <line>57</line>
+        <index>1718</index>
+        <endIndex>1726</endIndex>
+        <startLine>57</startLine>
         <startColumn>13</startColumn>
-        <endLine>58</endLine>
+        <endLine>57</endLine>
         <endColumn>21</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to mockEmployeeRepository must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>59</line>
-        <index>1816</index>
-        <endIndex>1837</endIndex>
-        <startLine>59</startLine>
+        <line>58</line>
+        <index>1784</index>
+        <endIndex>1805</endIndex>
+        <startLine>58</startLine>
         <startColumn>53</startColumn>
-        <endLine>59</endLine>
+        <endLine>58</endLine>
         <endColumn>74</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to TestSetupController must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>60</line>
-        <index>1854</index>
-        <endIndex>1872</endIndex>
-        <startLine>60</startLine>
+        <line>59</line>
+        <index>1822</index>
+        <endIndex>1840</endIndex>
+        <startLine>59</startLine>
         <startColumn>13</startColumn>
-        <endLine>60</endLine>
+        <endLine>59</endLine>
         <endColumn>31</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to empDetail must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>61</line>
-        <index>1955</index>
-        <endIndex>1963</endIndex>
-        <startLine>61</startLine>
+        <line>60</line>
+        <index>1923</index>
+        <endIndex>1931</endIndex>
+        <startLine>60</startLine>
         <startColumn>68</startColumn>
-        <endLine>61</endLine>
+        <endLine>60</endLine>
         <endColumn>76</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
+        <context>Only tab characters are allowed to be used for indentation.</context>
+        <line>55</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
@@ -1011,58 +996,58 @@
         <line>62</line>
         <warning>False</warning>
       </violation>
-      <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
-        <context>Only tab characters are allowed to be used for indentation.</context>
-        <line>63</line>
-        <warning>False</warning>
-      </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
         <context>The method must have a documentation header.</context>
-        <line>66</line>
+        <line>65</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to TestSetup must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>69</line>
-        <index>2201</index>
-        <endIndex>2209</endIndex>
-        <startLine>69</startLine>
+        <line>68</line>
+        <index>2169</index>
+        <endIndex>2177</endIndex>
+        <startLine>68</startLine>
         <startColumn>13</startColumn>
-        <endLine>69</endLine>
+        <endLine>68</endLine>
         <endColumn>21</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to mockEmployeeRepository must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>70</line>
-        <index>2267</index>
-        <endIndex>2288</endIndex>
-        <startLine>70</startLine>
+        <line>69</line>
+        <index>2235</index>
+        <endIndex>2256</endIndex>
+        <startLine>69</startLine>
         <startColumn>53</startColumn>
-        <endLine>70</endLine>
+        <endLine>69</endLine>
         <endColumn>74</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixLocalCallsWithThis" ruleCheckId="SA1101">
         <context>The call to TestSetupController must begin with the 'this.' prefix to indicate that the item is a member of the class.</context>
-        <line>71</line>
-        <index>2305</index>
-        <endIndex>2323</endIndex>
-        <startLine>71</startLine>
+        <line>70</line>
+        <index>2273</index>
+        <endIndex>2291</endIndex>
+        <startLine>70</startLine>
         <startColumn>13</startColumn>
-        <endLine>71</endLine>
+        <endLine>70</endLine>
         <endColumn>31</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="ClosingCurlyBracketsMustBeSpacedCorrectly" ruleCheckId="SA1013">
         <context>Invalid spacing around the closing curly bracket.</context>
-        <line>68</line>
-        <index>2185</index>
-        <endIndex>2185</endIndex>
-        <startLine>68</startLine>
+        <line>67</line>
+        <index>2153</index>
+        <endIndex>2153</endIndex>
+        <startLine>67</startLine>
         <startColumn>67</startColumn>
-        <endLine>68</endLine>
+        <endLine>67</endLine>
         <endColumn>67</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
+        <context>Only tab characters are allowed to be used for indentation.</context>
+        <line>65</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
@@ -1103,11 +1088,6 @@
       <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
         <context>Only tab characters are allowed to be used for indentation.</context>
         <line>73</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCopPlus.StyleCopPlusRules" rule="CheckAllowedIndentationCharacters" ruleCheckId="SP2001">
-        <context>Only tab characters are allowed to be used for indentation.</context>
-        <line>74</line>
         <warning>False</warning>
       </violation>
     </violations>

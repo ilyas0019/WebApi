@@ -188,7 +188,6 @@ D:\Git.WebApi\WebApi\WebApi.UI\bin\System.Web.WebPages.Deployment.xml
 D:\Git.WebApi\WebApi\WebApi.UI\bin\System.Web.WebPages.Razor.xml
 D:\Git.WebApi\WebApi\WebApi.UI\obj\Debug\WebApi.UI.dll
 D:\Git.WebApi\WebApi\WebApi.UI\obj\Debug\WebApi.UI.pdb
-D:\Git.WebApi\WebApi\WebApi.UI\obj\Debug\WebApi.UI.csprojResolveAssemblyReference.cache
 C:\Projects\WebApi\WebApi.UI\bin\WebApi.UI.dll.config
 C:\Projects\WebApi\WebApi.UI\bin\WebApi.UI.dll
 C:\Projects\WebApi\WebApi.UI\bin\WebApi.UI.pdb
